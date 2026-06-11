@@ -1,0 +1,49 @@
+﻿May 15 08:00:01 ubuntu-server systemd[1]: Starting Network Service Manager...
+May 15 08:00:02 ubuntu-server systemd[1]: Started Network Service Manager.
+May 15 08:00:03 ubuntu-server NetworkManager[512]: <info>  [1747267203] dhcp4: state changed new lease, address=192.168.1.105
+May 15 08:00:05 ubuntu-server kernel: [  102.334] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+May 15 08:00:07 ubuntu-server systemd[1]: Starting PostgreSQL Database Server...
+May 15 08:00:09 ubuntu-server postgres[731]: [1] FATAL: could not open file "/etc/postgresql/14/main/pg_hba.conf": No such file or directory
+May 15 08:00:09 ubuntu-server systemd[1]: postgresql.service: Control process exited with error code. Exiting.
+May 15 08:00:09 ubuntu-server systemd[1]: Failed to start PostgreSQL Database Server. See 'journalctl -xe' for details.
+May 15 08:00:10 ubuntu-server kernel: [  107.112] ata1.00: exception Emask 0x0 SAct 0x1 SErr 0x0 action 0x6 frozen
+May 15 08:00:10 ubuntu-server kernel: [  107.113] ata1.00: failed command: READ FPDMA QUEUED
+May 15 08:00:12 ubuntu-server sshd[801]: Accepted publickey for ubuntu from 192.168.1.50 port 52341 ssh2
+May 15 08:00:14 ubuntu-server sudo[812]: ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/apt update
+May 15 08:00:16 ubuntu-server apt[834]: WARNING: The following packages cannot be authenticated: libssl1.1 openssl
+May 15 08:00:18 ubuntu-server apt[834]: E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/openssl_1.1.1f-1ubuntu2_amd64.deb 404 Not Found
+May 15 08:00:19 ubuntu-server systemd[1]: Starting Apache2 Web Server...
+May 15 08:00:21 ubuntu-server apache2[902]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name
+May 15 08:00:22 ubuntu-server apache2[902]: (98) Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+May 15 08:00:22 ubuntu-server systemd[1]: apache2.service: Control process exited with error code. Exiting.
+May 15 08:00:23 ubuntu-server systemd[1]: Failed to start Apache2 Web Server.
+May 15 08:00:25 ubuntu-server sudo[921]: ubuntu : TTY=pts/0 ; USER=root ; COMMAND=/bin/systemctl restart nginx
+May 15 08:00:26 ubuntu-server nginx[933]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+May 15 08:00:28 ubuntu-server kernel: [  125.441] Out of memory: Killed process 1042 (java) total-vm:2048MB, anon-rss:1800MB
+May 15 08:00:28 ubuntu-server kernel: [  125.442] oom_reaper: reaped process 1042 (java), now anon-rss:0kB, file-rss:0kB
+May 15 08:00:30 ubuntu-server sudo[1101]: ubuntu : TTY=pts/0 ; USER=root ; COMMAND=/usr/bin/journalctl -xe
+May 15 08:00:32 ubuntu-server systemd[1]: Starting Docker Daemon...
+May 15 08:00:33 ubuntu-server dockerd[1154]: time="2026-05-15T08:00:33Z" level=info msg="Starting up"
+May 15 08:00:34 ubuntu-server dockerd[1154]: time="2026-05-15T08:00:34Z" level=warning msg="No swap limit support"
+May 15 08:00:35 ubuntu-server dockerd[1154]: time="2026-05-15T08:00:35Z" level=info msg="Docker daemon" commit=abc1234 version=24.0.5
+May 15 08:00:36 ubuntu-server systemd[1]: Started Docker Daemon.
+May 15 08:00:38 ubuntu-server sshd[1201]: error: maximum authentication attempts exceeded for invalid user admin from 203.45.67.89 port 44821
+May 15 08:00:38 ubuntu-server sshd[1201]: Disconnecting invalid user admin 203.45.67.89 port 44821: Too many authentication failures
+May 15 08:00:39 ubuntu-server sshd[1202]: Invalid user root from 203.45.67.89 port 44900
+May 15 08:00:39 ubuntu-server sshd[1202]: pam_unix(sshd:auth): authentication failure; logname= uid=0 rhost=203.45.67.89
+May 15 08:00:40 ubuntu-server ufw[1]: [UFW BLOCK] IN=eth0 OUT= SRC=203.45.67.89 DST=192.168.1.105 PROTO=TCP DPT=22
+May 15 08:00:42 ubuntu-server sudo[1301]: ubuntu : TTY=pts/0 ; USER=root ; COMMAND=/bin/kill -9 $(lsof -ti:80)
+May 15 08:00:44 ubuntu-server systemd[1]: Reloading Apache2 Web Server...
+May 15 08:00:45 ubuntu-server apache2[1350]: AH00163: Apache configured -- resuming normal operations
+May 15 08:00:45 ubuntu-server systemd[1]: Started Apache2 Web Server.
+May 15 08:00:47 ubuntu-server sudo[1402]: ubuntu : TTY=pts/0 ; USER=root ; COMMAND=/bin/systemctl start postgresql
+May 15 08:00:48 ubuntu-server kernel: [  145.229] EXT4-fs error (device sda1): ext4_validate_block_bitmap:376: comm kworker: bg block bitmap checksum invalid
+May 15 08:00:49 ubuntu-server postgres[1451]: [1] LOG: database system is ready to accept connections
+May 15 08:00:50 ubuntu-server systemd[1]: Started PostgreSQL Database Server.
+May 15 08:00:52 ubuntu-server cron[1501]: (root) CMD (/usr/bin/certbot renew --quiet)
+May 15 08:00:53 ubuntu-server certbot[1512]: ERROR: Could not connect to ACME server. Retrying in 30s... (attempt 1/3)
+May 15 08:01:23 ubuntu-server certbot[1512]: ERROR: Could not connect to ACME server. Retrying in 30s... (attempt 2/3)
+May 15 08:01:55 ubuntu-server certbot[1512]: ERROR: Failed to renew certificate "example.com" with error: Connection timed out
+May 15 08:02:00 ubuntu-server systemd[1]: systemd-journald.service: Watchdog timeout (limit 3min)!
+May 15 08:02:01 ubuntu-server systemd[1]: All services recovered. System operational.
+May 15 08:02:03 ubuntu-server sudo[1601]: ubuntu : TTY=pts/0 ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
